@@ -6,12 +6,12 @@
   <link rel="stylesheet" th:href="@{/styles.css}" />
 </head>
 <body>
-<h1>Design your taco!</h1>
+<h1>Создайте Ваше тако!</h1>
 <img th:src="@{/images/TacoCloud.png}"/>
 <form method="POST" th:object="${taco}">
   <div class="grid">
     <div class="ingredient-group" id="wraps">
-      <h3>Designate your wrap:</h3>
+      <h3>Создайте Вашу упаковку:</h3>
       <div th:each="ingredient : ${wrap}">
         <input th:field="*{ingredients}" type="checkbox"
                th:value="${ingredient.id}"/>
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="ingredient-group" id="proteins">
-      <h3>Pick your protein:</h3>
+      <h3>Выберите свой белок:</h3>
       <div th:each="ingredient : ${protein}">
         <input th:field="*{ingredients}" type="checkbox"
                th:value="${ingredient.id}"/>
@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="ingredient-group" id="cheeses">
-      <h3>Choose your cheese:</h3>
+      <h3>Выберите Ваш сыр:</h3>
       <div th:each="ingredient : ${cheese}">
         <input th:field="*{ingredients}" type="checkbox"
                th:value="${ingredient.id}"/>
@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="ingredient-group" id="veggies">
-      <h3>Determine your veggies:</h3>
+      <h3>Определите состав овощей:</h3>
       <div th:each="ingredient : ${veggies}">
         <input th:field="*{ingredients}" type="checkbox"
                th:value="${ingredient.id}"/>
@@ -43,7 +43,7 @@
       </div>
     </div>
     <div class="ingredient-group" id="sauces">
-      <h3>Select your sauce:</h3>
+      <h3>Выберите соус:</h3>
       <div th:each="ingredient : ${sauce}">
         <input th:field="*{ingredients}" type="checkbox"
                th:value="${ingredient.id}"/>
@@ -52,10 +52,10 @@
     </div>
   </div>
   <div>
-    <h3>Name your taco creation:</h3>
+    <h3>Имя Вашего созданного тако:</h3>
     <input type="text" th:field="*{name}"/>
     <br/>
-    <button>Submit Your Taco</button>
+    <button>Отправить Ваше тако</button>
   </div>
 </form>
 </body>

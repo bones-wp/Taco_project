@@ -1,4 +1,4 @@
-package spring.tacocloud;
+package spring.taco;
 
 import lombok.Data;
 
