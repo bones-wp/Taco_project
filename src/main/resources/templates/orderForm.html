@@ -18,6 +18,9 @@
   <h3>Доставить мои шедевры тако...</h3>
   <label for="deliveryName">Name: </label>
   <input type="text" th:field="*{deliveryName}"/>
+  <span class="validationError"
+        th:if = "${#fields.hasErrors('deliveryName')}"
+        th:errors="*{deliveryName}" > Ошибка в названии доставки </span>
   <br/>
   <label for="deliveryStreet">Street address: </label>
   <input type="text" th:field="*{deliveryStreet}"/>
@@ -31,9 +34,12 @@
   <label for="deliveryZip">Zip code: </label>
   <input type="text" th:field="*{deliveryZip}"/>
   <br/>
-  <h3>Here’s how I’ll pay...</h3>
+  <h3>Платёжные данные</h3>
   <label for="ccNumber">Credit Card #: </label>
   <input type="text" th:field="*{ccNumber}"/>
+  <span class="validationError"
+        th:if = "${#fields.hasErrors('ccNumber')}"
+        th:errors="*{ccNumber}" > CC Num Error </span>
   <br/>
   <label for="ccExpiration">Expiration: </label>
   <input type="text" th:field="*{ccExpiration}"/>
