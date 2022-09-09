@@ -3,6 +3,7 @@ package spring.taco;
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
+import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -12,7 +13,24 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@Entity
 public class TacoOrder implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private Date placedAt = new Date();
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Taco> tacos = new ArrayList<>();
+
+    public void addTaco (Taco taco) {
+        this.tacos.add(taco);
+    }
+
 
     @NotBlank(message = "Требуется ввести название для доставки")
     private String deliveryName;
@@ -38,16 +56,5 @@ public class TacoOrder implements Serializable {
     @Digits(integer = 3, fraction = 0, message = "Неверный CVV-код")
     private String ccCVV;
 
-    private static final long serialVersionUID = 1L;
-
-    private Long id;
-
-    private Date placedAt;
-
-    private List<Taco> tacos = new ArrayList<>();
-
-    public void addTaco (Taco taco) {
-        this.tacos.add(taco);
-    }
 
 }
